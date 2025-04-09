@@ -100,6 +100,7 @@ const DocumentUploadForm: React.FC<DocumentUploadFormProps> = ({ onUploadComplet
         fileUrl,
         courseId: data.courseId,
         originalFileName: data.file.name,
+        isDraft  // Include the isDraft property here
       }, isDraft);
 
       form.reset();

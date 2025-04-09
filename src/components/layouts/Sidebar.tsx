@@ -45,7 +45,8 @@ export const Sidebar: React.FC = () => {
   const isStudent = user?.role === 'student';
   const isAdmin = user?.role === 'admin';
 
-  const SidebarContent = () => (
+  // Rename this to avoid conflict with the imported SidebarContent component
+  const SidebarContentSection = () => (
     <>
       <SidebarHeader className="flex items-center pb-4">
         <img 
@@ -240,7 +241,7 @@ export const Sidebar: React.FC = () => {
         </DrawerTrigger>
         <DrawerContent className="h-[80%]">
           <div className="px-4 py-6">
-            <SidebarContent />
+            <SidebarContentSection />
           </div>
         </DrawerContent>
       </Drawer>
@@ -249,7 +250,7 @@ export const Sidebar: React.FC = () => {
 
   return (
     <ShadcnSidebar>
-      <SidebarContent />
+      <SidebarContentSection />
     </ShadcnSidebar>
   );
 };
