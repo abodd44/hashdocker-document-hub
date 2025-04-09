@@ -14,6 +14,8 @@ import {
   Settings, 
   LogOut,
   PanelLeft,
+  PanelRight,
+  Menu
 } from 'lucide-react';
 import {
   Sidebar as ShadcnSidebar,
@@ -33,7 +35,7 @@ import { Button } from '@/components/ui/button';
 
 export const Sidebar: React.FC = () => {
   const { logout, user } = useAuth();
-  const { t } = useAppSettings();
+  const { t, language } = useAppSettings();
   const location = useLocation();
   const isMobile = useIsMobile();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -44,6 +46,9 @@ export const Sidebar: React.FC = () => {
   
   const isStudent = user?.role === 'student';
   const isAdmin = user?.role === 'admin';
+
+  // Get appropriate panel icon based on language
+  const PanelIcon = language === 'ar' ? PanelRight : PanelLeft;
 
   // Rename this to avoid conflict with the imported SidebarContent component
   const SidebarContentSection = () => (
@@ -234,9 +239,12 @@ export const Sidebar: React.FC = () => {
   if (isMobile) {
     return (
       <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
-        <DrawerTrigger asChild className="fixed top-4 left-4 z-50 md:hidden">
+        <DrawerTrigger asChild className={cn(
+          "fixed top-4 z-50 md:hidden",
+          language === 'ar' ? "right-4" : "left-4"
+        )}>
           <Button variant="outline" size="icon" className="h-10 w-10">
-            <PanelLeft className="h-4 w-4" />
+            <Menu className="h-4 w-4" />
           </Button>
         </DrawerTrigger>
         <DrawerContent className="h-[80%]">
@@ -249,7 +257,7 @@ export const Sidebar: React.FC = () => {
   }
 
   return (
-    <ShadcnSidebar>
+    <ShadcnSidebar side={language === 'ar' ? 'right' : 'left'}>
       <SidebarContentSection />
     </ShadcnSidebar>
   );

@@ -33,7 +33,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   
   return (
     <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${language === 'ar' ? 'rtl' : 'ltr'}`}>
-      <SidebarProvider>
+      <SidebarProvider defaultOpen={true}>
         <div className="flex w-full">
           {isAuthenticated && <Sidebar />}
           <div className="flex-1">

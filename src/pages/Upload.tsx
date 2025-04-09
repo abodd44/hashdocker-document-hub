@@ -8,15 +8,11 @@ import DocumentUploadForm from '@/components/document/DocumentUploadForm';
 const Upload: React.FC = () => {
   const { t } = useAppSettings();
   const location = useLocation();
-  // We'll remove this as the component doesn't accept initialCourseId
-  // const courseId = location.state?.courseId;
   
   return (
     <MainLayout>
       <div className="space-y-6">
         <h1 className="text-3xl font-bold">{t('uploadDocument')}</h1>
-        
-        {/* Remove the initialCourseId prop */}
         <DocumentUploadForm />
       </div>
     </MainLayout>
