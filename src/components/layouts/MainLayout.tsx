@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import { useAuth } from '@/contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { useAppSettings } from '@/contexts/AppSettingsContext';
+import { SidebarProvider } from '@/components/ui/sidebar';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -32,15 +33,17 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   
   return (
     <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${language === 'ar' ? 'rtl' : 'ltr'}`}>
-      <div className="flex">
-        {isAuthenticated && <Sidebar />}
-        <div className={`flex-1 ${isAuthenticated ? 'md:ml-64' : ''}`}>
-          {isAuthenticated && <Navbar />}
-          <main className={`container mx-auto px-4 py-6 ${isAuthenticated ? 'mt-16' : ''}`}>
-            {children}
-          </main>
+      <SidebarProvider>
+        <div className="flex w-full">
+          {isAuthenticated && <Sidebar />}
+          <div className="flex-1">
+            {isAuthenticated && <Navbar />}
+            <main className="container mx-auto px-4 py-6 mt-16">
+              {children}
+            </main>
+          </div>
         </div>
-      </div>
+      </SidebarProvider>
     </div>
   );
 };

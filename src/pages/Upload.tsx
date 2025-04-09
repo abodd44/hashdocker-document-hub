@@ -15,7 +15,7 @@ const Upload: React.FC = () => {
       <div className="space-y-6">
         <h1 className="text-3xl font-bold">{t('uploadDocument')}</h1>
         
-        <DocumentUploadForm initialCourseId={courseId} />
+        <DocumentUploadForm initialCourseId={courseId || ""} />
       </div>
     </MainLayout>
   );
