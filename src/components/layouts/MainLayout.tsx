@@ -34,9 +34,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({
     <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="flex">
         {isAuthenticated && <Sidebar />}
-        <div className="flex-1">
+        <div className={`flex-1 ${isAuthenticated ? 'md:ml-64' : ''}`}>
           {isAuthenticated && <Navbar />}
-          <main className="container mx-auto px-4 py-6">
+          <main className={`container mx-auto px-4 py-6 ${isAuthenticated ? 'mt-16' : ''}`}>
             {children}
           </main>
         </div>
