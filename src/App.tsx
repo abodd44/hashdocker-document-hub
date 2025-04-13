@@ -14,6 +14,7 @@ import { CourseProvider } from "@/contexts/CourseContext";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import MyDocuments from "./pages/MyDocuments";
+import MyDocument from "./pages/MyDocument";
 import Upload from "./pages/Upload";
 import DraftDocuments from "./pages/DraftDocuments";
 import Courses from "./pages/Courses";
@@ -46,6 +47,7 @@ const App = () => (
                       {/* Student Routes */}
                       <Route path="/dashboard" element={<Dashboard />} />
                       <Route path="/my-documents" element={<MyDocuments />} />
+                      <Route path="/my-document" element={<MyDocument />} />
                       <Route path="/upload" element={<Upload />} />
                       <Route path="/drafts" element={<DraftDocuments />} />
                       <Route path="/courses" element={<Courses />} />

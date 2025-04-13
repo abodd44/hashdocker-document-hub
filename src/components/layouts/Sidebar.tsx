@@ -15,7 +15,8 @@ import {
   LogOut,
   PanelLeft,
   PanelRight,
-  Menu
+  Menu,
+  File
 } from 'lucide-react';
 import {
   Sidebar as ShadcnSidebar,
@@ -91,6 +92,19 @@ export const Sidebar: React.FC = () => {
                   <Link to="/my-documents">
                     <FileText size={20} />
                     <span>{t('myDocuments')}</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              
+              <SidebarMenuItem>
+                <SidebarMenuButton 
+                  isActive={isActive('/my-document')} 
+                  asChild 
+                  tooltip={t('myDocument')}
+                >
+                  <Link to="/my-document">
+                    <File size={20} />
+                    <span>{t('myDocument')}</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
